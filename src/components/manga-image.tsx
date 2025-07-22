@@ -1,8 +1,5 @@
 import React, { useState } from "react";
-import {
-  LazyLoadImage,
-  LazyLoadImageProps,
-} from "react-lazy-load-image-component";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { Button } from "./nettrom/Button";
 import Iconify from "./iconify";
 
