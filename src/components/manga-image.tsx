@@ -12,6 +12,7 @@ interface Props extends IProps {
   threshold?: number;
   fullWidth?: boolean;
   dataSaver: boolean;
+  className?: string;
   onDataSaverChange: () => void;
 }
 
