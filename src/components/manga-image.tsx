@@ -3,7 +3,8 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { Button } from "./nettrom/Button";
 import Iconify from "./iconify";
 
-type IProps = LazyLoadImageProps;
+type IProps = React.ComponentProps<typeof LazyLoadImage>;
+
 
 interface Props extends IProps {
   index?: number;
