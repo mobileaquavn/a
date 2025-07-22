@@ -1,9 +1,12 @@
 import React, { useState } from "react";
-import { LazyLoadImage } from 'react-lazy-load-image-component';
+import {
+  LazyLoadImage,
+  type LazyLoadImageProps
+} from 'react-lazy-load-image-component';
 import { Button } from "./nettrom/Button";
 import Iconify from "./iconify";
 
-type IProps = React.ComponentProps<typeof LazyLoadImage>;
+type IProps = LazyLoadImageProps;
 
 interface Props extends IProps {
   index?: number;
@@ -11,9 +14,9 @@ interface Props extends IProps {
   threshold?: number;
   fullWidth?: boolean;
   dataSaver: boolean;
-  className?: string;
   onDataSaverChange: () => void;
 }
+
 
 export default function MangaImage({
   className = "",
