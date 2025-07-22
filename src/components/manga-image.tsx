@@ -55,16 +55,14 @@ export default function MangaImage({
     <span
       className={`block overflow-hidden ${loaded ? "min-h-0" : "min-h-[100vh]"} ${className}`}
     >
-      <LazyLoadImage
-        wrapperClassName="block"
-        effect={disabledEffect ? undefined : effect}
-        placeholderSrc={"/images/truyendex-loading.jpg"}
-        className="h-full w-full object-cover"
-        onLoad={() => setLoaded(true)}
-        onError={() => setError(true)}
-        threshold={threshold}
-        {...(other as any)}
-      />
+    <img
+      className="block mx-auto"
+      src={src}
+      alt={alt}
+      onLoad={() => setLoaded(true)}
+      placeholder="/images/truyendex-loading.jpg"
+    />
+
     </span>
   );
 }
