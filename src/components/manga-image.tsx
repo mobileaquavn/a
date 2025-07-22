@@ -5,7 +5,6 @@ import Iconify from "./iconify";
 
 type IProps = React.ComponentProps<typeof LazyLoadImage>;
 
-
 interface Props extends IProps {
   index?: number;
   disabledEffect?: boolean;
@@ -23,10 +22,13 @@ export default function MangaImage({
   threshold = 0,
   dataSaver,
   onDataSaverChange,
+  src,
+  alt,
   ...other
 }: Props) {
   const [loaded, setLoaded] = useState(false);
   const [error, setError] = useState(false);
+
   if (error)
     return (
       <div className="flex flex-col justify-center gap-2 bg-white/10 px-2 py-5">
@@ -53,18 +55,20 @@ export default function MangaImage({
         </div>
       </div>
     );
+
   return (
     <span
       className={`block overflow-hidden ${loaded ? "min-h-0" : "min-h-[100vh]"} ${className}`}
     >
-    <img
-      className="block mx-auto"
-      src={src}
-      alt={alt}
-      onLoad={() => setLoaded(true)}
-      placeholder="/images/truyendex-loading.jpg"
-    />
-
+      <img
+        className="block mx-auto"
+        src={src}
+        alt={alt || ""}
+        onLoad={() => setLoaded(true)}
+        onError={() => setError(true)}
+        placeholder="/images/truyendex-loading.jpg"
+        {...other}
+      />
     </span>
   );
 }
